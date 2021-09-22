@@ -29,7 +29,7 @@ const Home = ({navigation}) => {
     }
     temp = [];
     Object.entries(data).forEach(([key, value]) => {
-      if (value.name.includes(text)) {
+      if (value.name.includes(text) || value.email.includes(text)) {
         console.log(value.name, key, text);
         temp.push({...value});
       }
@@ -49,7 +49,7 @@ const Home = ({navigation}) => {
       <View style={styles.icontainer}>
         <TextInput
           style={[styles.inputStyle]}
-          placeholder="Search "
+          placeholder="Search name and email"
           placeholderTextColor="gray"
           value={search}
           onChangeText={text => onChangeText(text)}
